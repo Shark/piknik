@@ -2,6 +2,11 @@ package main
 
 import blake2b "github.com/minio/blake2b-simd"
 
+const (
+	// DomainStr - BLAKE2 domain (personalization)
+	DomainStr = "PK"
+)
+
 func auth0(conf Conf, clientVersion byte, r []byte) []byte {
 	hf0, _ := blake2b.New(&blake2b.Config{
 		Key:    conf.Psk,
