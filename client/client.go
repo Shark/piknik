@@ -13,12 +13,12 @@ import (
 	"os"
 	"time"
 
-	"github.com/yawning/chacha20"
+	"gitlab.com/yawning/chacha20.git"
 	"golang.org/x/crypto/ed25519"
 )
 
-// DefaultClientVersion - Default client version
-const DefaultClientVersion = byte(5)
+// defaultClientVersion - Default client version
+const defaultClientVersion = byte(5)
 
 // Client - Client data
 type Client struct {
@@ -49,7 +49,7 @@ func (client *Client) copyOperation(h1 []byte) {
 	}
 	contentWithNonce := contentWithNonceBuf.Bytes()
 
-	cipher, err := chacha20.NewCipher(conf.EncryptSk, nonce)
+	cipher, err := chacha20.New(conf.EncryptSk, nonce)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -142,7 +142,7 @@ func (client *Client) pasteOperation(h1 []byte, isMove bool) {
 		log.Fatal("Signature doesn't verify")
 	}
 	nonce := ciphertextWithNonce[0:24]
-	cipher, err := chacha20.NewCipher(conf.EncryptSk, nonce)
+	cipher, err := chacha20.New(conf.EncryptSk, nonce)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -167,7 +167,7 @@ func RunClient(conf Conf, isCopy bool, isMove bool) {
 		conn:    conn,
 		reader:  reader,
 		writer:  writer,
-		version: DefaultClientVersion,
+		version: defaultClientVersion,
 	}
 	r := make([]byte, 32)
 	if _, err = rand.Read(r); err != nil {
