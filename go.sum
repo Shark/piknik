@@ -1,3 +1,4 @@
+github.com/Shark/piknik v0.0.0-20190821133515-e441fe80c2e7 h1:hUo958hF82ljOP3ratooZ/82jdHGBjePrRpOLRiqdxI=
 github.com/minio/blake2b-simd v0.0.0-20160723061019-3f5f724cb5b1 h1:lYpkrQH5ajf0OXOcUbGjvZxxijuBwbbmlSxLiuofa+g=
 github.com/minio/blake2b-simd v0.0.0-20160723061019-3f5f724cb5b1/go.mod h1:pD8RvIylQ358TN4wwqatJ8rNavkEINozVn9DtGI3dfQ=
 github.com/yawning/chacha20 v0.0.0-20170904085104-e3b1f968fc63 h1:TeObrio4Mp54SbIOvUItiG0cew3s/7Efcuol0tpb2ps=

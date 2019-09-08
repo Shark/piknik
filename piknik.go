@@ -2,28 +2,9 @@ package main
 
 import (
 	"log"
-	"time"
-)
 
-const (
-	// Version - Piknik version
-	Version = "0.9.1"
-	// DefaultTTL - Time after the clipboard is considered obsolete, in seconds
-	DefaultTTL = 7 * 24 * time.Hour
+	"github.com/Shark/piknik/client"
 )
-
-// Conf - Shared config
-type Conf struct {
-	Connect     string
-	EncryptSk   []byte
-	EncryptSkID []byte
-	Psk         []byte
-	SignPk      []byte
-	SignSk      []byte
-	Timeout     time.Duration
-	DataTimeout time.Duration
-	TTL         time.Duration
-}
 
 func main() {
 	log.SetFlags(0)
@@ -35,7 +16,7 @@ func main() {
 	// timeout := flag.Uint("timeout", 10, "connection timeout (seconds)")
 	// dataTimeout := flag.Uint("datatimeout", 3600, "data transmission timeout (seconds)")
 
-	var conf Conf
+	var conf client.Conf
 	// pskHex := tomlConf.Psk
 	// psk, err := hex.DecodeString(pskHex)
 	// if err != nil {
@@ -95,5 +76,5 @@ func main() {
 	// conf.DataTimeout = time.Duration(*dataTimeout) * time.Second
 	isCopy := true
 	isMove := false
-	RunClient(conf, isCopy, isMove)
+	client.RunClient(conf, isCopy, isMove)
 }

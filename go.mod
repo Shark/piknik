@@ -1,4 +1,4 @@
-module github.com/jedisct1/piknik
+module github.com/Shark/piknik
 
 go 1.12
 
